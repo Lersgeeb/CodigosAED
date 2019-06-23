@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+        <script>
+                /********************NODO**********************/
+                function Node(name, value){
+            
+                    //atributos
+                    this.name = name;
+                    this.value = value;
+                    this.next = null;
+            
+                    //metodos
+                    this.addNext = NodeAddNext;
+            
+                }
+            
+                function NodeAddNext(node){
+                    this.next = node;
+                }
+            
+                /*************LISTA ENLAZADA****************/
+                function LinkedList(){
+                    //atributos
+                    this.first = null;
+            
+                    //metodos
+                    this.runList = LinkedListRunList;
+                    this.add = LinkedListAdd;
+                    this.remove = LinkedListRemove;
+            
+                }
+            
+                function LinkedListRunList(){
+                    trail = " ";
+                    temporalNode = this.first;
+                    while(temporalNode.next){
+                        trail = trail + temporalNode.name + " -> ";
+                        temporalNode = temporalNode.next;
+                    }
+            
+                    trail = trail + temporalNode.name + " -> NULL";
+                    console.log(trail);
+                }
+            
+                function LinkedListAdd(node){
+            
+                    if(!this.first){
+                        this.first = node;
+                    }
+                    else{
+            
+                        temporalNode = this.first;
+                        while(temporalNode.next){
+                        temporalNode = temporalNode.next;
+                        }
+                        temporalNode.addNext(node);
+                    }
+                }
+
+                function LinkedListRemove(removeValue){
+                    if(this.first.name == removeValue){
+                        this.first = this.first.next;
+                    }
+
+                    else{
+                        temporalNode = this.first.next;
+                        previous = this.first;
+
+                        while(temporalNode.next){
+                            if(temporalNode.name == removeValue){
+                                previous.next = temporalNode.next;
+                                console.log("El nodo: "+ removeValue +" fue removido exitosamente.");
+                                break;
+                            }else{
+                                previous = temporalNode;
+                                temporalNode = temporalNode.next;
+                            }
+                        }
+
+                        if(!temporalNode.next){
+                            previous.next = null;
+                        }
+
+                    }
+                }
+            
+                /***************PRUEBAS********************/
+                node0 = new Node("Primero", 0);
+                node1 = new Node("Segundo", 1);
+                node2 = new Node("Tercero", 2);
+                node3 = new Node("Cuarto", 3);
+                node4 = new Node("Quinto", 4);
+            
+                list = new LinkedList();
+                list.add(node0);
+                list.add(node1);
+                list.add(node2);
+                list.add(node3);
+                list.add(node4);
+
+                list.runList();
+
+                list.remove("Segundo");
+                list.runList();
+
+                list.remove("Quinto");
+                list.runList();
+            
+                list2 = new LinkedList();
+                //list2.remove("Quinto");
+                list2.runList();
+            </script>
+</body>
+</html>

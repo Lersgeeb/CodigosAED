@@ -1,0 +1,72 @@
+
+<script>
+function Node(value){
+    this.previous=null;
+    this.value=value;
+}
+
+function Stack(){
+    this.first=null;
+
+    this.push=StackPush;
+    this.print= StackPrint;
+    this.getFirst = StackGetFirst;
+    this.getLast = StackGetLast;
+    this.pop = StackPop;
+}
+    function StackPush(value){
+        if(!this.first){
+            this.first=new Node(value);
+            return true;
+        }
+        else{
+            current = this.first;
+            this.first = new Node(value);
+            this.first.previous=current;
+            return true;
+        }
+    }
+
+    function StackPrint(){
+        current = this.first;
+        while(current.previous){
+            console.log(current.value);
+            current=current.previous;
+        }
+        console.log(current.value);
+    }
+
+    function StackGetFirst(){
+        return this.first.value;
+    }
+    
+    function StackGetLast(){
+        current = this.first;
+        while(current.previous){
+            current = current.previous;
+        }
+        return current.value;
+    }
+
+    function StackPop(){
+        nodeReturn = this.first;
+        this.first = nodeReturn.previous;
+        return nodeReturn.value; 
+    }
+
+
+myStack = new Stack();
+myStack.push("primer valor agregado");
+myStack.push("segundo valor agregado");
+myStack.push("tercer valor agregado");
+myStack.print();
+
+console.log("First: ",myStack.getFirst());
+console.log("Last: ",myStack.getLast());
+
+
+console.log("que pase el siguiente");
+console.log("Actual:", myStack.pop());
+myStack.print();
+
+</script>

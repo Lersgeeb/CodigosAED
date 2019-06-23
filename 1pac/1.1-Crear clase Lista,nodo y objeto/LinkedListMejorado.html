@@ -1,0 +1,28 @@
+<script src = "ClaseParaLinkedListMejorado.js"></script>
+<script>
+
+Lista = new LinkedList();
+Lista.print();
+Lista.add(1);
+Lista.add(2);
+Lista.add("3");
+Lista.print();
+console.log("\nEl primer valor es:", Lista.getFirst());
+console.log("El ultimo valor es:", Lista.getLast());
+console.log("--------------------------------------------------");
+console.log("\nAgregando nuevo dato");
+Lista.addInposition("2.5",2);
+Lista.addInposition("3.5",4);
+Lista.print();
+console.log("\nEl primer valor es:", Lista.getFirst());
+console.log("El ultimo valor es:", Lista.getLast());
+console.log("--------------------------------------------------");
+console.log("\nEliminando datos");
+Lista.removeForValue("2.5");
+Lista.removeForPosition(0);//eliminando el prinmero
+Lista.removeForPosition(2);//eliminando el ultimo
+Lista.print();
+console.log("\nEl primer valor es:", Lista.getFirst());
+console.log("El ultimo valor es:", Lista.getLast());
+
+</script>

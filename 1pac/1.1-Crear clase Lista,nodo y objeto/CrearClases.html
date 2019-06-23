@@ -1,0 +1,29 @@
+<script>
+
+function ListaEnlazada(primero){
+
+    this.primero = primero;
+
+}
+
+function Nodo(nombre, estudiante){
+    
+    this.nombre = nombre;
+    this.estudiante = estudiante;
+    this.siguiente = null;
+
+}
+
+function Estudiante(nombre, nCuenta,){
+
+this.nombre = nombre;
+this.nCuenta = nCuenta;
+this.indice = 100;
+
+}
+
+juan = new Estudiante("Juan", 2018100);
+nodo = new Nodo(0, juan);
+lista = new ListaEnlazada(nodo); 
+
+</script>

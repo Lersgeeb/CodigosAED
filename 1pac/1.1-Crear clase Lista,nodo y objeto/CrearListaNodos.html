@@ -1,0 +1,131 @@
+<script>
+   
+    function Node(name){
+
+        this.name = name;
+        this.next = null; 
+        
+        this.addNext = NodeAddNext;
+        this.print = NodePrint;
+        
+    }         
+        function NodeAddNext(node){
+           
+            this.next = node;
+        }
+        function NodePrint(){
+            console.log("El nombre del nodo: ",this.name);
+            if(this.next){
+                console.log("El nombre del nodo siguiente:",this.next.name);
+            }
+             
+        }
+
+
+    function LinkedList(){
+        this.first = null;
+
+        this.add = LinkedListAdd;           //Agregar nodo a la lista
+        this.print = LinkedListPrint;       //Imprimir nodos de la lista
+        this.remove = LinkedListRemove;     //Eliminar nodo de la lista
+        
+    }   
+
+    //------------------------------------------------------------------------------------
+    //--------------------------------------LinkedList's Methods--------------------------
+    //------------------------------------------------------------------------------------
+
+        function LinkedListAdd(node){
+            if(!this.first)
+                this.first = node;
+            else{
+                tempNode = this.first;
+                while(tempNode.next){
+                    tempNode = tempNode.next
+                }
+                tempNode.next=node;
+            }    
+            console.log("Se ha agregado el nodo: " + node.name);
+        }
+
+        function LinkedListPrint(){
+            //existe primero => existe proximo => (T) ir al proximo => repetir paso 2
+            //                                 => (F) terminar.
+            if(this.first){
+                tempNode = this.first;
+                cadena = tempNode.name;
+                while(tempNode.next){
+                    tempNode = tempNode.next;
+                    cadena = cadena + " --> " + tempNode.name;
+                }
+                console.log(cadena);
+            }
+            else{
+                console.log("No existen datos en esta lista. ");
+            }
+
+        }
+
+        function LinkedListRemove(nodeToRmv){
+            contador=0;
+            if(this.first){
+                tempNode = this.first;
+                if(tempNode==nodeToRmv){
+                    this.first=tempNode.next;
+                    contador=1;
+                }
+                else{
+                    while(tempNode.next){
+                        if(tempNode.next==nodeToRmv){
+                            tempNode.next=tempNode.next.next;
+                            contador=1;
+                            break;
+                        }
+                        tempNode=tempNode.next;
+                    }
+                }
+                if(contador==1)
+                    console.log("El nodo ha sido removido")
+                else{
+                    console.log("No existe el nodo en esta lista. ")
+                }
+            }
+            else{
+                console.log("No existe el nodo en esta lista(NO EXISTEN ELEMENTOS EN LA LISTA) ");
+            }
+
+        }
+
+
+    node1 = new Node("Primero");   
+    node2 = new Node("Segundo");   
+    node3 = new Node("Tercero");   
+    node4 = new Node("Cuarto");
+/*
+    node1.addNext(node2);
+    node2.addNext(node3);
+    node3.addNext(node4);
+    
+   // console.log(node1);
+
+    node = node1;
+
+    while(node.next){
+        node.print(1);
+        node=node.next;
+    }
+    node.print();
+*/
+
+    lista = new LinkedList();
+    lista.add(node1);
+    lista.add(node2);
+    lista.add(node3);
+    lista.add(node4);
+    lista.print();
+    lista.remove(node2);
+    lista.print();
+    list2 = new LinkedList();
+     list2.remove(node2);
+    list2.print();
+</script>
