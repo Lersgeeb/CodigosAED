@@ -25,26 +25,17 @@ function LinkedList(first){
             current = current.next;
             myLinkedList.printR(new LinkedList(current));
         }
-    }
-*/
-    function LinkedListPrint(current=null){
-        if(!current){
-            current=this.first;
-            this.print(current);
+    }*/
+    function LinkedListPrint(current=this.first){
+        if(current.next){
+            console.log(current.value);
+            this.print(current.next);
         }
         else{
-            if(current.next){
-                console.log(current.value);
-                this.print(current.next);
-            }
-            else{
-                console.log(current.value);
-            }
-
+            console.log(current.value);
         }
     }
-    
-    
+ /*
     function LinkedListAdd(value){
         if(!this.first){
             this.first = new Node(value);
@@ -57,4 +48,20 @@ function LinkedList(first){
             }
             currentNode.next = new Node(value);      
         }   
+    }*/
+    function LinkedListAdd(value, current=null){
+        if(!this.first){
+            this.first=new Node(value);
+            return true;
+        }
+        else{
+            if(!current)
+                current=this.first;
+            if(current.next)
+                this.add(value,current.next);
+            else{
+                current.next=new Node(value);
+                return true;
+            }
+        }
     }
