@@ -8,8 +8,9 @@ function LinkedList(first){
 
     this.add = LinkedListAdd;
     this.print = LinkedListPrint;
-    this.printR = LinkedListPrintR;
+  //  this.printR = LinkedListPrintR;
 }
+    /*
     function LinkedListPrint(){
         myLinkedList = new LinkedList(this.first);
         myLinkedList.printR(myLinkedList);
@@ -25,6 +26,24 @@ function LinkedList(first){
             myLinkedList.printR(new LinkedList(current));
         }
     }
+*/
+    function LinkedListPrint(current=null){
+        if(!current){
+            current=this.first;
+            this.print(current);
+        }
+        else{
+            if(current.next){
+                console.log(current.value);
+                this.print(current.next);
+            }
+            else{
+                console.log(current.value);
+            }
+
+        }
+    }
+    
     
     function LinkedListAdd(value){
         if(!this.first){
