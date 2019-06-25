@@ -1,6 +1,5 @@
 print("---------------------------------------------------------------------------------")
-filestr ="C:\\Users\\Manuel\Downloads\\Gabriel\\V periodo\\Algoritmo y Estructura de Datos\\"\
-           "codigos\\Extras\\Python Intro\\MyTxtFile.txt"
+filestr ="Extras\\Python Intro\\MyTxtFile.txt"
 
 myFile = open(filestr)  #Inicializar el archivo de texto
 miStr = myFile.read()   #retorna todas las lineas en forma de string

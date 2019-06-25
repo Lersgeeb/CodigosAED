@@ -1,4 +1,4 @@
-filename = "Instru.txt"
+filename = "Extras\\PythonTurtle\\Instru.txt"
 file = open(filename,"r")
     
 for line in file:

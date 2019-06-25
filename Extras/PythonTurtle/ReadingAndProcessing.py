@@ -2,7 +2,7 @@ import turtle
 
 def main():
     
-    filename = "C:\\Users\\Manuel\\Downloads\\Gabriel\\V periodo\\Algoritmo y Estructura de Datos\\codigos\\Extras\\PythonTurtle\\Instru.txt"
+    filename = "Extras\\PythonTurtle\\Instru.txt"
    
     # Create a Turtle Graphics window to draw in.
     t = turtle.Turtle()
