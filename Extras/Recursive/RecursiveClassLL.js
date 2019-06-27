@@ -8,6 +8,7 @@ function LinkedList(first){
 
     this.add = LinkedListAdd;
     this.print = LinkedListPrint;
+    this.printReverse = LinkedListPrintReverse;
   //  this.printR = LinkedListPrintR;
 }
     /*
@@ -63,5 +64,16 @@ function LinkedList(first){
                 current.next=new Node(value);
                 return true;
             }
+        }
+    }
+    
+    function LinkedListPrintReverse(head = this.first){
+        if(head.next){
+            queue=head.next;
+            this.printReverse(queue);
+            console.log(head.value);
+        }
+        else{
+            console.log(head.value);
         }
     }
