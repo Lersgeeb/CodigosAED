@@ -9,6 +9,7 @@ function LinkedList(first){
     this.add = LinkedListAdd;
     this.print = LinkedListPrint;
     this.printReverse = LinkedListPrintReverse;
+    this.printList = LinkedListPrintList;
   //  this.printR = LinkedListPrintR;
 }
     /*
@@ -76,4 +77,20 @@ function LinkedList(first){
         else{
             console.log(head.value);
         }
+    }
+
+    function LinkedListPrintList(current = this.first, trail = null){
+        if(trail==null)
+            trail = "[ " + this.first.value;
+        if(current.next){
+            current = current.next;
+            trail = trail + " , " + current.value;
+            this.printList(current,trail); 
+        }
+        else{
+            trail = trail + " ]";
+            console.log(trail);
+        }        
+            
+
     }
