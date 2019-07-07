@@ -6,17 +6,17 @@ function RandomCSV(){
     function RandomCSVGenerate(){
         r=Random2Int(10,20);
         c=Random2Int(10,20);
-        columb = [];
+        c=10;
         row = [];
+        
+        for(j=0;j<r;j++){
+            columns = [];
 
-
-        for(j=0;j<c;j++){
-            
-            for(i=0;i<r;i++){
-                columb.push(Random2Int());    
+            for(i=0;i<c;i++){
+                columns.push(Random2Int());    
             }
-            row.push(columb);
+            row.push(columns.join(","));              
         }
 
-        return row;
+        return row.join("\n");
     }
