@@ -1,0 +1,76 @@
+<script>
+
+function Node(value){
+    this.value = value;
+    this.next = null;
+}
+
+function LinkedList(){
+    this.first = null;
+
+    this.add = LinkedListAdd;
+    this.print = LinkedListPrint;
+}
+
+    function LinkedListAdd(value){
+        
+        if(!this.first){
+            this.first = new Node(value);
+            return true;
+        }
+        else{
+            current = this.first;
+            if(value >= current.value){
+                this.first = new Node(value);
+                this.first.next = current;
+                return true;
+            }
+            else{
+                while(current.next){
+                    before = current;
+                    current = current.next;
+                    if(value >= current.value){
+                        before.next = new Node(value);
+                        before.next.next = current;
+                        return true;
+                    }
+                }
+                current.next = new Node(value);
+                return true;    
+            }
+        }
+    }
+
+    function LinkedListPrint(){
+        if(!this.first){
+            console.log("NO EXISTE LISTA A IMPRIMIR");
+        }
+        else{
+            currentNode = this.first;
+            while(currentNode.next){
+                console.log(currentNode.value);
+                currentNode=currentNode.next;
+            }
+            console.log(currentNode.value);
+            
+        }
+
+    }
+
+
+console.log("Hola");
+Lista = new LinkedList();
+Lista.add(1);     
+Lista.add(2);     
+Lista.add(3);     
+Lista.add(6);      
+Lista.add(5);
+Lista.add(5);
+Lista.add(2);
+Lista.add(1);
+Lista.print();
+
+
+
+
+</script>
