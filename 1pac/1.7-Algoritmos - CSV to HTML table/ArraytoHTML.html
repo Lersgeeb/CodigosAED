@@ -1,0 +1,84 @@
+
+<table border="5">
+    <tr>
+        <td colspan="4">Hecho desde codigo de HTML</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td colspan='2'>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td colspan="3">5</td>
+        
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+     
+    </tr>
+</table>
+
+<script>
+    //funcion: convertir Array en una tabla de HTML 
+    function ArrayToHTMLTable(myArray = []){
+
+        stringHtml = "<table border='5'><tr><td colspan='4'>Hecho desde codigo de Javascript<br><center>String formatting y join()</center></br></td></tr>";
+
+        for(i=0;i<myArray.length;i++){
+            stringHtml += `<tr><td>${myArray[i].join("</td><td>")}</td></tr>`;
+            /* IGUAL A:
+            stringHtml += "<tr><td>";
+            stringHtml += myArray[i].join("</td><td>");
+            stringHtml += "</td></tr>";
+            */
+        }
+        stringHtml += "</table>";
+        return stringHtml;
+    }
+
+    function ArrayToHTMLTableDoubleFor(myArray = []){
+
+        stringHtml = `<table border='5'><tr><td colspan='4'>Hecho desde codigo de Javascript<br><center>String formatting y Bucle doble</center></br></td></tr>`;
+
+        for(i=0;i<myArray.length;i++){
+
+            stringHtml += `<tr>`;
+            if(i==0)
+                cMax=myArray[0].length;
+
+            else if(cMax<myArray[i].length)
+                cMax = myArray[i].length;
+            
+            for(j=0;j<myArray[i].length;j++){
+                if((j+1)==myArray[i].length)
+                    stringHtml += `<td colspan='${(cMax-myArray[i].length+1)}'>${myArray[i][j]}</td>`; 
+                else{
+                    stringHtml += `<td>${myArray[i][j]}</td>`;
+                }
+
+            }
+            stringHtml += `</tr>`;
+        }
+
+        stringHtml += `</table>`;
+
+        return stringHtml;
+    }
+    
+    //crear un arreglo que simule ser un file CSV
+    //console.log(ArrayToHTMLTableDoubleFor(CSVLikeArray));
+    CSVLikeArray = [[1,2,3],[4,5],[6,7,8,9]];
+    document.write(ArrayToHTMLTable(CSVLikeArray));
+    document.write(ArrayToHTMLTableDoubleFor(CSVLikeArray));
+    
+    edad = 18;
+    miString = `mi edad es: ${edad}`;
+    edad++;
+    document.write(miString);
+
+    
+</script>
