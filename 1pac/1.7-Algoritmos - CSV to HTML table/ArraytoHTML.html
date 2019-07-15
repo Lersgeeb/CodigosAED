@@ -43,16 +43,17 @@
     function ArrayToHTMLTableDoubleFor(myArray = []){
 
         stringHtml = `<table border='5'><tr><td colspan='4'>Hecho desde codigo de Javascript<br><center>String formatting y Bucle doble</center></br></td></tr>`;
+        cMax=0;
+        for(i=0;i<myArray.length;i++){
+            if(i==0)
+                cMax=myArray[0].length;
+            else if(cMax<myArray[i].length)
+                cMax = myArray[i].length;
+        }
 
         for(i=0;i<myArray.length;i++){
 
             stringHtml += `<tr>`;
-            if(i==0)
-                cMax=myArray[0].length;
-
-            else if(cMax<myArray[i].length)
-                cMax = myArray[i].length;
-            
             for(j=0;j<myArray[i].length;j++){
                 if((j+1)==myArray[i].length)
                     stringHtml += `<td colspan='${(cMax-myArray[i].length+1)}'>${myArray[i][j]}</td>`; 
@@ -75,10 +76,13 @@
     document.write(ArrayToHTMLTable(CSVLikeArray));
     document.write(ArrayToHTMLTableDoubleFor(CSVLikeArray));
     
+    /*  comprobando si el String con formating actualiza su cadena
     edad = 18;
     miString = `mi edad es: ${edad}`;
     edad++;
     document.write(miString);
 
+    ---salida:18---- NO se actualiza
+    */
     
 </script>
