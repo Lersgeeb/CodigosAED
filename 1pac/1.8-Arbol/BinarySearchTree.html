@@ -1,0 +1,56 @@
+<script>
+function Node(value){
+    this.value = value;
+    this.left =  null;
+    this.rigth =  null;
+}
+
+function BST(){
+    this.root = null;
+
+    this.add = BSTAdd;
+
+}
+    function BSTAdd(value,current = this.root){
+        if(!current){
+            this.root = new Node(value);
+            return true;
+        }
+        else{
+            if(value>current.value){
+                if(!current.rigth){
+                    current.rigth = new Node(value);
+                    return true;
+                }
+                else{
+                    this.add(value,current.rigth);
+                }
+            }
+            else if(value<current.value){
+                if(!current.left){
+                    current.left = new Node(value);
+                    return true;
+                }
+                else{
+                    this.add(value,current.left);
+                }
+            }
+            else{
+                return false;
+            }
+        }
+    }
+
+
+seed = new BST();
+seed.add(32);
+seed.add(37);
+seed.add(22);
+seed.add(11);
+seed.add(25);
+seed.add(33);
+seed.add(60);
+console.log(seed);
+
+</script>
+
