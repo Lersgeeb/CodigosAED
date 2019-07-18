@@ -14,3 +14,11 @@ def factorialDesc(n):
 
     return factorial
 
+def fibonacci(n):
+    n = int(n)
+    if(n==1 or n==0):
+        return n
+    elif(n>1):
+        return fibonacci(n-1) + fibonacci(n-2)
+    else:
+        return False
