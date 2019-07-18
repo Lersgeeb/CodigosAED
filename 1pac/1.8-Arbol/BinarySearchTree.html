@@ -9,7 +9,7 @@ function BST(){
     this.root = null;
 
     this.add = BSTAdd;
-
+    this.search = BSTSearch;
 }
     function BSTAdd(value,current = this.root){
         if(!current){
@@ -41,6 +41,20 @@ function BST(){
         }
     }
 
+    function BSTSearch(value,current=this.root){
+
+        if(current){
+            if(current.value==value)
+                return true;
+            else if(value<current.value)
+                 return this.search(value,current.left);
+            else
+                return this.search(value,current.rigth);
+        }
+        else
+            return false; 
+    }
+
 
 seed = new BST();
 seed.add(32);
@@ -51,6 +65,8 @@ seed.add(25);
 seed.add(33);
 seed.add(60);
 console.log(seed);
+console.log(seed.search(32));
+console.log(seed.search(34));
 
 </script>
 
