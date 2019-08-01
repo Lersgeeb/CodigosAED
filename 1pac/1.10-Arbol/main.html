@@ -1,0 +1,37 @@
+<script src = "LinkedList.js"></script>
+<script src = "Compare.js"></script>
+<script>
+
+function Anything(name){
+    this.name = name;
+}
+
+
+c = new Compare();
+a = new Anything("holaObjeto");
+b = new Anything("h");
+/*
+console.log(c.compare(123,"ho")); //-1
+console.log(c.compare(1,"ho")); //-1
+console.log(c.compare("ho",123)); //1
+console.log(c.compare("hola","hola"));//0
+console.log(c.compare("hola","hol"));//1
+console.log(c.compare("hola",a));//0
+console.log(c.compare(a,"hol"));//1
+*/
+ll = new LinkedList();
+ll.add("hola");
+ll.add(1);
+ll.add("ho");
+ll.add("134");
+ll.add("hola");
+ll.add("Hola");
+ll.add("perro");
+ll.add(999999);
+ll.add(a);
+ll.add(b);
+console.log(ll);
+
+
+
+</script>
