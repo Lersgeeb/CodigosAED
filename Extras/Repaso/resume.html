@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+<script></script>
+<script>
+
+function Node(value){
+        self.value = value
+    }
+//coding en js
+/*
+//El Uso de Random y Math 
+num = Math.random();
+console.log(num);
+console.log(Math.floor(num));
+prom = num * (100-0) + 0;
+console.log(Math.floor(prom));
+
+//Agregar informacio (prompt)
+sum = prompt("cual es tu nombre?" );
+console.log(`mucho gusto ${sum}`);
+
+console.log("cual es tu edad?");
+age = prompt(); //no recomendable
+console.log(`${age} años`);
+*/
+
+//uso del split y join
+
+arr1 = ['1','2','3','4','5',"6","7"];
+arr2 = [1,2,3,4,5,6,7];
+mistr = arr2.join(" - ");
+console.log(mistr); //puede convertir de un solo los int a str en un join
+
+newArr = mistr.split(" - ");
+console.log(newArr);
+
+//typeof js
+a = new Node(1);
+console.log(typeof a == "object");
+
+var hola = "hola";
+let hola2 = "hola2";
+</script>
+
