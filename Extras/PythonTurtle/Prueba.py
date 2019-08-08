@@ -3,13 +3,17 @@ file = open(filename,"r")
     
 for line in file:
     
-    print(line)
-    text = line.strip()
-    commandList = text.split(",")
-    # get the drawing command
-    command = commandList[0]
-    print("hola")
-    print(command)
+    lastline = line.strip
+
+print(lastline)
+    
+file.seek(0)
+command = file.readline()
+print(command)
+print(command)
+print(command.strip()) 
+print(command.strip())
+
 
 
     
