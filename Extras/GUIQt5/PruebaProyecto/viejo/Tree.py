@@ -11,19 +11,18 @@ class Tree:
         if(not current): current=self.root
         current.children.add(value)
         return True
-
     
     def remove(self,value,current = None):
         if(not current): current=self.root
         current.children.removeForValue(value)
         return True
 
-    def getNodeParents(self, value, current = None):   #retorna nodo que contiene el valor en dicha lista enlazada 
+    def getNodeParents(self, value, current = None):    
         if(not current): current=self.root
         node = current.children.getNode(value) 
         return node
 
-    def refresh(self, command = None, value = None):
+    def refresh(self, command, value = None):
         if(command == "goto"):
             node = self.getNodeParents(value,self.WIA.getLastValue())
             self.WIA.add(node)
@@ -45,9 +44,6 @@ class Tree:
             node = self.WIA.getLastValue()
             self.remove(value,node)
             return self.WIA.getLastValue()
-        
-        elif(not command):
-            return self.WIA.getLastValue()
     
     def showMeChildrens(self,current = None):
         if(not current): current=self.root
@@ -55,7 +51,7 @@ class Tree:
 
         return Arr  #Retorna todos los valores del Children del current nodo
             
-'''
+
 t = Tree()
 nod = t.refresh("add", 17)
 nod = t.refresh("add", 12)
@@ -70,4 +66,4 @@ nod = t.refresh("remove",17)
 print("\nActual ruta: %s" % (t.WIA,))
 print("Actual Carpeta: %s" % (nod.value,))
 print("Hijos de la Actual ruta: %s\n" % (t.showMeChildrens(t.WIA.getLastValue()),))
-'''
+ 

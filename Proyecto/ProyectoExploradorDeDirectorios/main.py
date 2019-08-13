@@ -8,9 +8,12 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
         QtWidgets.QMainWindow.__init__(self, *args, **kwargs)
         self.setupUi(self)
         #--------------------------------------
-        #self.Explorer1.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
+        
         self.tree1 = Tree()
+        self.tree1.fileToTree("Archivo1.tsv")
         self.tree2 = Tree()
+        self.tree2.fileToTree("Archivo2.tsv")
+       
 
        
         self.Explorer1.itemDoubleClicked.connect(self.qGoTo1)
@@ -25,6 +28,7 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
         self.Copy1to2.clicked.connect(self.qCopy1to2)
         self.Copy2to1.clicked.connect(self.qCopy2to1)
         self.qRefresh1(self.tree1.refresh())
+        self.qRefresh2(self.tree2.refresh())
         
        
 
@@ -33,7 +37,7 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
             node = self.tree1.refresh("back")
             self.Explorer1.clear()
             self.qRefresh1(node)
-        else:
+        elif(self.Explorer1.currentItem().text()[-1] == "/"):
             node = self.tree1.refresh("goto",self.Explorer1.currentItem().text())
             self.Explorer1.clear()
             self.qRefresh1(node)
@@ -43,7 +47,7 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
             node = self.tree2.refresh("back")
             self.Explorer2.clear()
             self.qRefresh2(node)
-        else:
+        elif(self.Explorer2.currentItem().text()[-1] == "/"):
             node = self.tree2.refresh("goto",self.Explorer2.currentItem().text())
             self.Explorer2.clear()
             self.qRefresh2(node)
@@ -58,8 +62,8 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def qAddDir1(self):#***
         name = self.qGetName("carpeta")
-        name = name + "/"
         if(name):
+            name = name + "/"
             node = self.tree1.refresh("add",name)
             self.Explorer1.clear()
             self.qRefresh1(node)
@@ -69,8 +73,8 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def qAddDir2(self):#***
         name = self.qGetName("carpeta")
-        name = name + "/"
         if(name):
+            name = name + "/"
             node = self.tree2.refresh("add",name)
             self.Explorer2.clear()
             self.qRefresh2(node)
@@ -81,7 +85,7 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
     def qRefresh1(self,node):#***
         a = self.tree1.showMeChildrens(node)
         items = []
-        if(node.value != "ROOT"):
+        if(node.value != "ROOT/"):
             backItem = QtWidgets.QListWidgetItem("..") 
             backItem.setFlags(QtCore.Qt.NoItemFlags) 
             backItem.setFlags(QtCore.Qt.ItemIsEnabled) 
@@ -99,11 +103,13 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
                 items.append(QtWidgets.QListWidgetItem(icon2,value))
         for item in items:
             self.Explorer1.addItem(item)
+        
+        self.tree1.tsvToFile(self.tree1.root,"Archivo1.tsv")
 
     def qRefresh2(self,node):#***
         a = self.tree2.showMeChildrens(node)
         items = []
-        if(node.value != "ROOT"):
+        if(node.value != "ROOT/"):
             backItem = QtWidgets.QListWidgetItem("..") 
             backItem.setFlags(QtCore.Qt.NoItemFlags) 
             backItem.setFlags(QtCore.Qt.ItemIsEnabled) 
@@ -121,6 +127,8 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
                 items.append(QtWidgets.QListWidgetItem(icon2,value))
         for item in items:
             self.Explorer2.addItem(item)
+
+        self.tree2.tsvToFile(self.tree2.root,"Archivo2.tsv")
    
     def qAddAr1(self):#***
         name = self.qGetName("archivo")
@@ -186,7 +194,8 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
         self.Explorer1.clear()
         self.qRefresh1(node2)
 
-    
+   
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     window = MainWindowUser()
