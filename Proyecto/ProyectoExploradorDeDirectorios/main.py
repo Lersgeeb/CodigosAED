@@ -37,6 +37,10 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
             node = self.tree1.refresh("back")
             self.Explorer1.clear()
             self.qRefresh1(node)
+        elif(self.Explorer1.currentItem().text() == "."):
+            node = self.tree1.refresh("goStart")
+            self.Explorer1.clear()
+            self.qRefresh1(node)
         elif(self.Explorer1.currentItem().text()[-1] == "/"):
             node = self.tree1.refresh("goto",self.Explorer1.currentItem().text())
             self.Explorer1.clear()
@@ -45,6 +49,10 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
     def qGoTo2(self):#***
         if(self.Explorer2.currentItem().text() == ".."):
             node = self.tree2.refresh("back")
+            self.Explorer2.clear()
+            self.qRefresh2(node)
+        elif(self.Explorer2.currentItem().text() == "."):
+            node = self.tree2.refresh("goStart")
             self.Explorer2.clear()
             self.qRefresh2(node)
         elif(self.Explorer2.currentItem().text()[-1] == "/"):
@@ -86,6 +94,10 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
         a = self.tree1.showMeChildrens(node)
         items = []
         if(node.value != "ROOT/"):
+            deepBackItem = QtWidgets.QListWidgetItem(".") 
+            deepBackItem.setFlags(QtCore.Qt.NoItemFlags) 
+            deepBackItem.setFlags(QtCore.Qt.ItemIsEnabled) 
+            self.Explorer1.addItem(deepBackItem)
             backItem = QtWidgets.QListWidgetItem("..") 
             backItem.setFlags(QtCore.Qt.NoItemFlags) 
             backItem.setFlags(QtCore.Qt.ItemIsEnabled) 
@@ -110,6 +122,10 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
         a = self.tree2.showMeChildrens(node)
         items = []
         if(node.value != "ROOT/"):
+            deepBackItem = QtWidgets.QListWidgetItem(".") 
+            deepBackItem.setFlags(QtCore.Qt.NoItemFlags) 
+            deepBackItem.setFlags(QtCore.Qt.ItemIsEnabled) 
+            self.Explorer2.addItem(deepBackItem)
             backItem = QtWidgets.QListWidgetItem("..") 
             backItem.setFlags(QtCore.Qt.NoItemFlags) 
             backItem.setFlags(QtCore.Qt.ItemIsEnabled) 

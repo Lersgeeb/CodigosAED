@@ -52,6 +52,11 @@ class Tree:
             self.remove(value,node)
             return self.WIA.getLastValue()
         
+        elif(command == "goStart"):
+            self.WIA.clearQueue()
+            
+            return self.WIA.getLastValue()
+        
         elif(not command):
             return self.WIA.getLastValue()
     
