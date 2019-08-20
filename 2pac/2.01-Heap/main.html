@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<script src = "Heap.js"></script>
+<script src = "LinkedList.js"></script>
+<script>
+
+list = new LinkedList();
+n = prompt("Tamaño lista");
+for(var i=0;i<n;i++){
+    list.add(i)
+}
+heap = new Heap();
+heap.build(list);
+</script>
