@@ -1,5 +1,5 @@
-from Queue import *
-from LinkedList import *
+from Núcleo.Queue import *
+from Núcleo.LinkedList import LinkedList
 import copy
 class Text:
     def __init__(self):
@@ -12,7 +12,6 @@ class Tree:
         self.root = Node("ROOT/")
         self.root.children = LinkedList()
         self.WIA = Queue(self.root) #WIA = WhereIAM
-
     def add(self,value,current = None):
         if(not current): current=self.root
         current.children.add(value)
@@ -28,8 +27,10 @@ class Tree:
         if(not current): current=self.root
         node = current.children.getNode(value) 
         return node
+#[root,dir13]
+#self.update(goto,dir13)
 
-    def refresh(self, command = None, value = None):
+    def update(self, command = None, value = None, tree1 = None, tree2 = None):
         if(command == "goto"):
             node = self.getNodeParents(value,self.WIA.getLastValue())
             self.WIA.add(node)
@@ -56,6 +57,15 @@ class Tree:
             self.WIA.clearQueue()
             
             return self.WIA.getLastValue()
+
+        elif(command == "copy"):
+            nodeToCopy = copy.deepcopy(tree1.getNodeParents(value,tree1.WIA.getLastValue()))
+            nodeWhereCopy = tree2.WIA.getLastValue()
+            nodeWhereCopy.children.add(nodeToCopy.value)
+            nodeCopied = nodeWhereCopy.children.getNode(nodeToCopy.value)
+            nodeCopied.children = nodeToCopy.children
+
+            return nodeWhereCopy
         
         elif(not command):
             return self.WIA.getLastValue()
@@ -102,19 +112,19 @@ class Tree:
                     beforeTabs = before.count("\t")
                     currentTabs = current.count("\t")
                     difTab = (beforeTabs - currentTabs)
-                    #n: ir atras n posiciones y agregar en el current 0: add en el current lugar -1:meterme en el anterior agregado y add en el current
+                
                     if(difTab == -1 ):
-                        self.refresh("add",current.strip())
-                        self.refresh("goto",current.strip())
+                        self.update("add",current.strip())
+                        self.update("goto",current.strip())
                     elif(difTab == 0 ):
-                        self.refresh("back")
-                        self.refresh("add",current.strip())
-                        self.refresh("goto",current.strip())
+                        self.update("back")
+                        self.update("add",current.strip())
+                        self.update("goto",current.strip())
                     elif(difTab > 0):
-                        for i in range(0,difTab+1,1):
-                            self.refresh("back")
-                        self.refresh("add",current.strip())
-                        self.refresh("goto",current.strip()) 
+                        for _ in range(0,difTab+1,1):
+                            self.update("back")
+                        self.update("add",current.strip())
+                        self.update("goto",current.strip()) 
 
         self.WIA.clearQueue()
     

@@ -1,4 +1,4 @@
-from Compare import *
+from Núcleo.Compare import *
 class Node:
 
     def __init__(self,value):

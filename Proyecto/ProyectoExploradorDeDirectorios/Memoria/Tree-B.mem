@@ -1,5 +1,7 @@
 ROOT/ 
+	defaultUser/ 
 	Document/ 
+		A/ 
 		CodigoAED/ 
 			BST 
 			Tree 
@@ -9,5 +11,8 @@ ROOT/
 		CursosPython/ 
 			HolaMundo 
 		VSCode 
+	NombrePC/ 
+		vhg/ 
+			bgujj/ 
 	Photos/ 
 		FolderIcon 
