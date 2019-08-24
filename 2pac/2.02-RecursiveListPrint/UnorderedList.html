@@ -1,0 +1,20 @@
+<script>
+function UnorderedListString(list){
+    let trail = '<ul style="list-style-type:circle;">';
+    for(i in list){
+        if(typeof list[i] == "object"){
+            trail = `${trail}${UnorderedListString(list[i])}`;
+        }
+        else{
+            trail = `${trail}<li>${list[i]}</li>`;
+        }
+    }
+    return `${trail}</ul>`;
+}
+
+
+lista = [1,2,[2.4,"2.6",[2.66,2.67,2.69]],3,4,5];
+listStr = UnorderedListString(lista); 
+console.log(listStr)
+document.write(listStr);
+</script>

@@ -165,13 +165,17 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.Copy2to1.setText(_translate("MainWindow", "<--"))
         self.Copy1to2.setText(_translate("MainWindow", "-->"))
-        self.CreateDir1.setText(_translate("MainWindow", "Crear Carpeta"))
+        self.CreateDir1.setText(_translate("MainWindow", " Crear\n"
+" Carpeta"))
         self.Explorer1.setSortingEnabled(False)
-        self.CreateAr1.setText(_translate("MainWindow", "Crear Archivo"))
+        self.CreateAr1.setText(_translate("MainWindow", " Crear\n"
+" Archivo"))
         self.Remove1.setText(_translate("MainWindow", "Remover"))
-        self.CreateAr2.setText(_translate("MainWindow", "Crear Archivo"))
+        self.CreateAr2.setText(_translate("MainWindow", " Crear\n"
+" Archivo"))
         self.Remove2.setText(_translate("MainWindow", "Remover"))
-        self.CreateDir2.setText(_translate("MainWindow", "Crear Carpeta"))
+        self.CreateDir2.setText(_translate("MainWindow", " Crear\n"
+" Carpeta"))
 
 
 if __name__ == "__main__":
