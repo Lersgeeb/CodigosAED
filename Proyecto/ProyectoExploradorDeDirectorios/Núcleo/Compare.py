@@ -1,6 +1,6 @@
 class Compare:
 
-    alphabet="/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    alphabet="/.0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNñÑoOpPqQrRsStTuUvVwWxXyYzZ"
 
     def __init__(self):
         pass

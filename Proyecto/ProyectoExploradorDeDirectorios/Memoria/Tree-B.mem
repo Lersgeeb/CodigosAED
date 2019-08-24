@@ -1,18 +1,18 @@
-ROOT/ 
-	defaultUser/ 
-	Document/ 
-		A/ 
-		CodigoAED/ 
-			BST 
-			Tree 
-		DataStructure 
-	Downloads/ 
-		git 
-		CursosPython/ 
-			HolaMundo 
-		VSCode 
-	NombrePC/ 
-		vhg/ 
-			bgujj/ 
-	Photos/ 
-		FolderIcon 
+ROOT/
+	defaultUser/
+	Document/
+		A/
+		CodigoAED/
+			BST
+			Tree
+		DataStructure
+	Downloads/
+		CursosPython/
+			HolaMundo
+		git
+		VSCode
+	NombrePC/
+		vhg/
+			bgujj/
+	Photos/
+		FolderIcon

@@ -12,11 +12,11 @@ class Tree:
         self.root = Node("ROOT/")
         self.root.children = LinkedList()
         self.WIA = Queue(self.root) #WIA = WhereIAM
+
     def add(self,value,current = None):
         if(not current): current=self.root
         current.children.add(value)
         return True
-
     
     def remove(self,value,current = None):
         if(not current): current=self.root
@@ -27,8 +27,6 @@ class Tree:
         if(not current): current=self.root
         node = current.children.getNode(value) 
         return node
-#[root,dir13]
-#self.update(goto,dir13)
 
     def update(self, command = None, value = None, tree1 = None, tree2 = None):
         if(command == "goto"):
@@ -75,25 +73,25 @@ class Tree:
         Arr = current.children.toArray()
 
         return Arr  #Retorna todos los valores del Children del current nodo
-
-    def treeToTSV(self,parent,count=0,text = None):
-        if not text: text = Text()
-        text.text+="\t"*count
-        text.text+= ("%s \n" % (parent.value,))
-        if parent.next:
-            if parent.children.first:
-                self.treeToTSV(parent.children.first,count+1,text)
-            self.treeToTSV(parent.next,count,text)
-        elif parent.children.first:
-            count+=1
-            self.treeToTSV(parent.children.first,count,text)
-        return text.text
-
-    def tsvToFile(self,current,filename):
-        text = self.treeToTSV(current)
+    
+    def treeToTsv(self,current,tab=0):
+        trail = ""
+        while(current):
+            if(current.value[-1]=="/"):
+                trail = "%s%s%s\n" % (trail,"\t"*tab,current.value)
+                trail = "%s%s" % (trail,self.treeToTsv(current.children.first,tab+1))
+            else:
+                trail = "%s%s%s\n" % (trail,"\t"*tab,current.value)
+            current = current.next
+        return trail
+        
+    def tsvToFile(self,filename):
+        current = self.root
+        tsvStr = self.treeToTsv(current)
         f = open(filename,"w")
-        f.write(text)
-        f.close
+        f.write(tsvStr)
+        f.close()
+        return True
 
 
     def fileToTree(self,filename):

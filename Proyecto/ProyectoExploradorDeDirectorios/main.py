@@ -117,7 +117,7 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
         for item in items:
             self.Explorer1.addItem(item)
         
-        self.tree1.tsvToFile(self.tree1.root,"Memoria//Tree-A.mem")
+        self.tree1.tsvToFile("Memoria//Tree-A.mem")
 
     def qRefresh2(self,node):#***
         a = self.tree2.showMeChildrens(node)
@@ -145,7 +145,7 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
         for item in items:
             self.Explorer2.addItem(item)
 
-        self.tree2.tsvToFile(self.tree2.root,"Memoria//Tree-B.mem")
+        self.tree2.tsvToFile("Memoria//Tree-B.mem")
    
     def qAddAr1(self):#***
         name = self.qGetName("archivo")

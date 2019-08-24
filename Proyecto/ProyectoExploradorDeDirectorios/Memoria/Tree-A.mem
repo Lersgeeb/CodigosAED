@@ -1,14 +1,21 @@
-ROOT/ 
-	Intel/ 
-		GraphicsConfig 
-	ProgramFile/ 
-		MicrosoftOffice/ 
-		Minecraft/ 
-		VisualCode/ 
-	User/ 
-		defaultUser/ 
-		hbj 
-		NombrePC/ 
-			vhg/ 
-				bgujj/ 
-		UserConfig 
+ROOT/
+	Document/
+		A/
+		CodigoAED/
+			BST
+			Tree
+		DataStructure
+	Intel/
+		GraphicsConfig
+	ProgramFile/
+		MicrosoftOffice/
+		Minecraft/
+			Minecraft.exe
+		VisualCode/
+	User/
+		defaultUser/
+		hbj
+		NombrePC/
+			vhg/
+				bgujj/
+		UserConfig
