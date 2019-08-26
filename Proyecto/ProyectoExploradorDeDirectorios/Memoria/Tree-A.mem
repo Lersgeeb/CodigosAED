@@ -6,6 +6,7 @@ ROOT/
 			Tree
 		DataStructure
 	Intel/
+		dsdds
 		GraphicsConfig
 	ProgramFile/
 		MicrosoftOffice/
@@ -14,7 +15,6 @@ ROOT/
 		VisualCode/
 	User/
 		defaultUser/
-		hbj
 		NombrePC/
 			vhg/
 				bgujj/

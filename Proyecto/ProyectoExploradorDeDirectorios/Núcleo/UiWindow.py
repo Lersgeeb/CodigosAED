@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet("*{\n"
 " }\n"
 "QMainWindow{\n"
-"background-color: black;\n"
+"background:url('Núcleo/back.jpg');\n"
 "}\n"
 "QWidget{\n"
 "color:white;\n"
@@ -79,12 +79,16 @@ class Ui_MainWindow(object):
         self.CreateDir1.setObjectName("CreateDir1")
         self.Explorer2 = QtWidgets.QListWidget(self.centralwidget)
         self.Explorer2.setGeometry(QtCore.QRect(450, 10, 341, 471))
-        self.Explorer2.setStyleSheet("")
+        self.Explorer2.setStyleSheet("border-radius: 10px;\n"
+"background-color:rgba(3,3,3,0.5);\n"
+"color:white;")
         self.Explorer2.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
         self.Explorer2.setObjectName("Explorer2")
         self.Explorer1 = QtWidgets.QListWidget(self.centralwidget)
         self.Explorer1.setGeometry(QtCore.QRect(10, 10, 341, 471))
-        self.Explorer1.setStyleSheet("")
+        self.Explorer1.setStyleSheet("border-radius: 10px;\n"
+"background-color:rgba(3,3,3,0.5);\n"
+"color:white;")
         self.Explorer1.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
         self.Explorer1.setObjectName("Explorer1")
         self.CreateAr1 = QtWidgets.QPushButton(self.centralwidget)

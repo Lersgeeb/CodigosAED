@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 class Compare:
 
-    alphabet="/.0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNñÑoOpPqQrRsStTuUvVwWxXyYzZ"
+    alphabet="/.0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
     def __init__(self):
         pass
