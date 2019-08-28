@@ -42,7 +42,7 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
             self.qRefresh1(node)   #Refrescar pantalla con el padre nodo ya actualizado
         
         elif(self.Explorer1.currentItem().text() == "."):   #En caso de ser "."
-            node = self.treeA.update("goStart")   #Ejecutar comando "ir a Inicio" que retornara el nodo root
+            node = self.treeA.update()   #Retornara el nodo actual
             self.Explorer1.clear()   #Limpiar pantalla de la Lista A
             self.qRefresh1(node)     #Refrescar pantalla con el padre nodo ya actualizado
         
@@ -57,7 +57,7 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
             self.Explorer2.clear()
             self.qRefresh2(node)
         elif(self.Explorer2.currentItem().text() == "."):
-            node = self.treeB.update("goStart")
+            node = self.treeB.update()
             self.Explorer2.clear()
             self.qRefresh2(node)
         elif(self.Explorer2.currentItem().text()[-1] == "/"):
@@ -213,10 +213,9 @@ class MainWindowUser(QtWidgets.QMainWindow, Ui_MainWindow):
         self.Explorer1.clear()
         self.qRefresh1(node) 
 
-    def center(self):
+    def center(self):   #Metodo para centrar la ventana
         qRect = self.frameGeometry()
         centerPoint = QtWidgets.QDesktopWidget().availableGeometry().center()
-        print(centerPoint)
         qRect.moveCenter(centerPoint)
         self.move(qRect.topLeft()) 
    

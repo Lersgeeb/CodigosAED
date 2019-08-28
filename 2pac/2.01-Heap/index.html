@@ -1,13 +1,17 @@
 <meta charset="utf-8">
 <script src = "Heap.js"></script>
-<script src = "LinkedList.js"></script>
+<script src = "../../1pac/1.10-Arbol/LinkedList.js"></script>
+<script src = "../../1pac/1.10-Arbol/Compare.js"></script>
 <script>
 
 list = new LinkedList();
 n = prompt("Tamaño lista");
 for(var i=0;i<n;i++){
-    list.add(i)
+    num = Math.random()*100;
+    num = Math.floor(num);
+    list.add(num);
 }
+console.log(list);
 heap = new Heap();
 heap.build(list);
 </script>

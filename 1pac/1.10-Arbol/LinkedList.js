@@ -10,6 +10,8 @@ function LinkedList(){
     this.first = null;
 
     this.add = LinkedListAdd;
+    this.getLength = LinkedListGetLength;
+    this.atPosition = LinkedListAtPosition;
 
 }
 
@@ -53,4 +55,41 @@ function LinkedList(){
                     return true;
             }
         }     
+    }
+
+    function LinkedListGetLength(){
+        current = this.first;
+        length = 0;
+    
+        while(current.next){
+            length++;
+            current = current.next;
+        }
+        length++;
+    
+        return length;
+    }
+    
+    function LinkedListAtPosition(position){
+        currentNode = this.first;
+        currentPosition = 0;
+        
+        if(position > this.getLength()){
+            return null;
+        }
+        else{
+            while(currentNode.next){
+                if(currentPosition == position){
+                    return currentNode;
+                }
+                else{
+                    currentPosition++;
+                    currentNode = currentNode.next;
+                }
+            }
+            if(currentPosition == position){
+                return currentNode;
+            }
+        }
+    
     }

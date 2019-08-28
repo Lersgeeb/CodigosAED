@@ -1,15 +1,9 @@
 ROOT/
 	defaultUser/
-	Document/
-		A/
-		CodigoAED/
-			BST
-			Tree
-		DataStructure
 	Downloads/
+		git
 		CursosPython/
 			HolaMundo
-		git
 		VSCode
 	NombrePC/
 		vhg/
