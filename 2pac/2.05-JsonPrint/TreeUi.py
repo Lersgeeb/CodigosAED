@@ -1,4 +1,28 @@
-from printDict import *
+class TreeUl:
+
+    def __init__(self):
+        pass
+
+    def convert(self,json,filename = "2pac//2.05-JsonPrint//index.html"):
+        html = self.innerConvert(json)
+        f = open(filename,"w")
+        f.write(html)
+        f.close()
+
+    def innerConvert(self,json):
+        html = ["<ul>"]
+        for k,v in json.items():
+            if(isinstance(v,dict)):
+                html.append("<li>%s" % (k,))
+                html.append(self.innerConvert(v))
+                html.append("</li>")
+            else:
+                #html.append("<li>%s</li>"  % (v,))    
+                html.append("<li>%s : %s</li>"  % (k,v))    
+        html.append("</ul>")
+        return "".join(html)
+            
+
 dct = { 
     "Root/":{ 
         "directorio1/":{
@@ -40,5 +64,7 @@ dct = {
         }
     } 
 }
+
 dct2 = {"root/":{"Dir1/":{"Dir2/":{"Archive":{"size":200,"date":"2019"}},"Archive":{"size":200,"date":"2019"}}}}
-printDict(dct2)
+t = TreeUl()
+t.convert(dct2)
