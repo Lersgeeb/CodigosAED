@@ -6,10 +6,18 @@
 
 list = new LinkedList();
 n = prompt("Tamaño lista");
-for(var i=0;i<n;i++){
-    num = Math.random()*100;
-    num = Math.floor(num);
-    list.add(num);
+ordered = prompt("Quiere una Lista con valores aleatorios?\n1-Si  2-No");
+if(ordered==1){
+    for(var i=0;i<n;i++){
+        num = Math.random()*100;
+        num = Math.floor(num);
+        list.add(num);
+    }
+}
+else{
+    for(var i=0;i<n;i++){
+        list.add(i);
+    }
 }
 console.log(list);
 heap = new Heap();
