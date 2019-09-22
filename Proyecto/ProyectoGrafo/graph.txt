@@ -1,0 +1,53 @@
+A
+	B
+		distancia:300
+		anchoDeBanda:25
+		usuariosConectados:7
+		cantidadDeTrafico:7
+		tipoDeMedio:WIFI
+	E
+		distancia:200
+		anchoDeBanda:35
+		usuariosConectados:8
+		cantidadDeTrafico:5
+		tipoDeMedio:CAT5
+	C
+		distancia:300
+		anchoDeBanda:20
+		usuariosConectados:5
+		cantidadDeTrafico:7
+		tipoDeMedio:CAT6
+B
+	E
+		distancia:300
+		anchoDeBanda:20
+		usuariosConectados:5
+		cantidadDeTrafico:7
+		tipoDeMedio:Fibra-Óptica
+	C
+		distancia:350
+		anchoDeBanda:20
+		usuariosConectados:5
+		cantidadDeTrafico:7
+		tipoDeMedio:CAT5
+C
+	D
+		distancia:200
+		anchoDeBanda:15
+		usuariosConectados:4
+		cantidadDeTrafico:5
+		tipoDeMedio:Coaxial
+	E
+		distancia:250
+		anchoDeBanda:15
+		usuariosConectados:5
+		cantidadDeTrafico:4
+		tipoDeMedio:Par-Trenzado
+	B
+		distancia:325
+		anchoDeBanda:20
+		usuariosConectados:3
+		cantidadDeTrafico:5
+		tipoDeMedio:WIFI
+D
+E

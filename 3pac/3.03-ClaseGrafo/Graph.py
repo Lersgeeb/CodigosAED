@@ -53,45 +53,7 @@ class Graph:
         plt.show()
     
     #con derecho de autor 
-    '''
-    def findPaths(self, graph, vertex, destination, path = [], visited = []):
-        #Agrego el vertice actual a la ruta y lo marco como visitado(para evitar ciclos)
-        visited.append(vertex)
-        path.append(vertex)
-
-        #Si el vertice actual es mi destino, imprimo la ruta seguida
-        if (vertex == destination):
-            print(path)
-
-        #Si no es el destino, se iteran las aristas del vertice actual
-        else:
-            for edge in graph[vertex]:
-                #Si la arista actual no se encuentra en los visitados, se llama recursivamente la función 
-                #para seguir avanzando
-                if(not edge in visited):
-                    self.findPaths(graph, edge, destination, path, visited)
-
-        #Luego de encontrar el destino, se retrocede un paso para poder buscar mas posibles caminos
-        path.pop()
-        visited.pop()
-    '''
-'''
-        currentVertex,s = self.vertices,{}
-        current = currentVertex.first
-        while(current):
-            
-            if(current.value.name == x):
-                edge = current.value.edges
-                current_edge = edge.first
-                while(current_edge):
-                    s["%s" % current_edge.value.name] = None
-                    current_edge = current_edge.next
-            
-            if(current.value.edges.alreadyExist(vertex_x)):
-                s["%s" % current.value.name] = None
-            current = current.next
-        return list(s.keys())
-'''       
+     
 x = "A"
 g = Graph()
 g.addVertex("A")
