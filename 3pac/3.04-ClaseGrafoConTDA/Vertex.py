@@ -1,5 +1,5 @@
 from LinkedList import LinkedList
-from Edge import Edge
+from Edge import *
 
 class Vertex:
     def __init__(self,name):

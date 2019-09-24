@@ -1,4 +1,3 @@
-from LinkedList import LinkedList
 class Edge:
     def __init__(self,vertexDestination,characteristic):
         self.name= vertexDestination

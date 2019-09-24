@@ -1,5 +1,4 @@
-from LinkedList import LinkedList
-from Vertex import Vertex
+from Vertex import Vertex,LinkedList
 from Characteristic import Characteristic
 import networkx as nx
 import matplotlib.pyplot as plt
