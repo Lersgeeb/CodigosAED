@@ -106,14 +106,15 @@ class Graph:
             if not searching:
                 searching = []
                 roads = []
-            searching = searching.copy()
-            searching.append(fromVertex)
-            fromVertex = self.vertices.search(fromVertex)
-            toVertex = self.vertices.search(toVertex)
-            if fromVertex.edges.search(toVertex.name):
+            searching = searching.copy()    #copiar arreglo searching
+            searching.append(fromVertex)    #agregar el from a la lista searching
+            fromVertex = self.vertices.search(fromVertex) #obtener objeto vertice from
+            toVertex = self.vertices.search(toVertex)   #obtener objeto vertice to
+            
+            if fromVertex.edges.search(toVertex.name):  #buscar en el vertice from si hay arista hacia verticeTo
                 road = {}
                 for i in searching:
-                    road[i] = None
+                    road[i] = None  #agregar el from a la road
                 road[fromVertex.name] = None
                 road[toVertex.name] = None
                 roads.append(list(road.keys()))

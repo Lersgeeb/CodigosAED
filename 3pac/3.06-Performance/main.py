@@ -6,7 +6,7 @@ from Performance import *
 execution = ExecutionTime()
 test = TestPerformance()
 arrayGenerator = ArrayGenerator()
-array = arrayGenerator.generate(10000)
+array = arrayGenerator.generate(1000)
 
 bubbleSort = BubbleSort()
 insertionSort = InsertionSort()

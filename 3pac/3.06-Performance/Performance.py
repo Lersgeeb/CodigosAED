@@ -24,7 +24,7 @@ class ExecutionTime:
         r = f-i
         milliseconds = r.days*24*60*60*1000
         milliseconds += r.seconds*1000
-        milliseconds += r.microseconds/100
+        milliseconds += r.microseconds/1000
 
         return milliseconds
 
